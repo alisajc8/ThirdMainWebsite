@@ -3487,7 +3487,7 @@ input, select, textarea {
 			-ms-flex-shrink: 0;
 			flex-shrink: 0;
 			border-radius: 0;
-			width: 50%;
+			width: 60%;
 		}
 
 			.banner.style1 .image img {
@@ -8649,4 +8649,7 @@ h1, h2, h3, h4, h5, h6 {
     transition: none;
   }
 }
+
+
+
 
