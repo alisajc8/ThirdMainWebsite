@@ -8651,5 +8651,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
+#first h2 {
+  color: #A7B2F2;
+
+}
+
+#crops h2 {
+  color: #61383C;
+}
+
+
+section#taste .content h2 { color: #618C03 !important; }
+
+html { scroll-behavior: smooth; }
 
 
