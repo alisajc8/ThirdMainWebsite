@@ -8842,14 +8842,14 @@ html { scroll-behavior: smooth; }
 }
 
 
-/* Desktop behavior stays as-is */
+/* Desktop stays unchanged */
 .contact-header {
   position: relative;
   display: inline-block;
   margin-bottom: 2rem;
 }
 
-/* Mobile: stack image below heading, slightly offset */
+/* Mobile: image ABOVE the header, slightly offset */
 @media screen and (max-width: 736px) {
   .contact-header {
     display: flex;
@@ -8858,11 +8858,12 @@ html { scroll-behavior: smooth; }
   }
 
   .contact-header-image {
-    position: static;          /* stop absolute positioning */
-    transform: translateX(12%); /* 👈 starts slightly off-center */
-    margin-top: 0.5rem;
+    order: -1;                 /* 👈 moves image before the h2 */
+    position: static;
+    transform: translateX(12%); /* handwritten offset */
+    margin-bottom: 0.5rem;
 
-    max-width: 260px;          /* safe mobile size */
+    max-width: 260px;
     width: 100%;
   }
 }
