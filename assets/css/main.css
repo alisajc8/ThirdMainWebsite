@@ -8867,3 +8867,153 @@ html { scroll-behavior: smooth; }
     width: 100%;
   }
 }
+/* ===============================
+   FOOTER BASE LAYOUT
+================================ */
+
+/* Main footer row */
+.footer-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+}
+
+/* Remove template margins that cause misalignment */
+.footer-row > * {
+  margin: 0 !important;
+}
+
+/* ===============================
+   SOCIAL ICONS
+================================ */
+
+.footer-icons {
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+/* ===============================
+   EMAIL SIGNUP (DO NOT CHANGE BEHAVIOR)
+================================ */
+
+.footer-signup-inline {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Normalize input + button height */
+.footer-signup-inline input[type="email"],
+.footer-signup-inline button {
+  height: 2.4rem;
+  line-height: 2.4rem;
+  margin: 0;
+  vertical-align: middle;
+}
+
+/* Make email box feel primary */
+.footer-signup-inline input[type="email"] {
+  width: 320px;
+}
+
+/* Button text visibility + centering */
+.footer-signup-inline button {
+  width: auto;
+  min-width: 6.5rem; /* enough for "Join email list" */
+  padding: 0 0.75rem;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===============================
+   FOOTER TEXT
+================================ */
+
+.footer-text {
+  flex-basis: 100%;
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.8rem;
+  opacity: 0.85;
+}
+
+/* ===============================
+   HANDWRITTEN PNG (ABOVE FOOTER ROW)
+================================ */
+
+.footer-handwritten-wrap {
+  text-align: center;
+  margin-top: -0.25rem; /* tighten space above */
+  margin-bottom: 0.5rem;
+}
+
+.footer-handwritten-wrap img {
+  width: 200px;
+  height: auto;
+  display: inline-block;
+  opacity: 0.85;
+}
+
+/* ===============================
+   MOBILE BEHAVIOR (736px ↓)
+================================ */
+
+@media screen and (max-width: 736px) {
+
+  /* Stack footer content */
+  .footer-row {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  /* Email list FIRST on mobile */
+  .footer-signup-inline {
+    order: 0;
+  }
+
+  /* Social icons SECOND */
+  .footer-icons {
+    order: 1;
+    justify-content: center;
+  }
+
+  /* Footer text LAST */
+  .footer-text {
+    order: 2;
+  }
+
+  /* Responsive email input */
+  .footer-signup-inline input[type="email"] {
+    width: 70vw;
+  }
+
+  /* Slightly smaller handwritten PNG */
+  .footer-handwritten-wrap img {
+    width: 140px;
+  }
+}
+
+/* === HARD OVERRIDE: tighten footer top spacing === */
+footer.wrapper {
+  padding-top: 1.25rem !important;
+  padding-bottom: 2rem !important;
+}
+
+footer.wrapper.style1 {
+  padding-top: 1.25rem !important;
+}
+
+footer.wrapper.align-center {
+  margin-top: 0 !important;
+}
+
+footer.wrapper > .inner {
+  padding-top: 0 !important;
+}
+
+
