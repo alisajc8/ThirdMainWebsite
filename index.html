@@ -175,112 +175,92 @@ To date, we’ve grown borage, white strawberries(pine berries), red alexandria 
 					</section>
 
 				<!-- Seven -->
-					<section id="order" class="wrapper style1 align-center">
-						<div class="inner medium">
-							<h2>Order now</h2>
-							<form id="orderForm" action="https://api.web3forms.com/submit" method="POST">
+<section id="order" class="wrapper style1 align-center">
+  <div class="inner medium">
+    <h2>Order now</h2>
 
-  <!-- Web3Forms access key -->
-  <input type="hidden" name="access_key" value="ec1af060-b2ee-4380-b0b7-2943af8a2791">
+    <form id="orderForm" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="ec1af060-b2ee-4380-b0b7-2943af8a2791">
+      <input type="hidden" name="botcheck" value="">
 
-  <!-- Honeypot (spam protection) -->
-  <input type="hidden" name="botcheck" value="">
+      <div class="fields">
+        <div class="field">
+          <label for="name">Name</label>
+          <input type="text" name="name" id="name" required>
+        </div>
 
+        <div class="field half">
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email" required>
+        </div>
 
-  <div class="fields">
+        <div class="field half">
+          <label for="phone">Phone number</label>
+          <input type="tel" name="phone" id="phone">
+        </div>
 
-    <div class="field">
-      <label for="name">Name</label>
-      <input type="text" name="name" id="name" required>
-    </div>
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea name="message" id="message" rows="6" required></textarea>
+        </div>
+      </div>
 
-    <div class="field half">
-      <label for="email">Email</label>
-      <input type="email" name="email" id="email" required>
-    </div>
-
-    <div class="field half">
-      <label for="phone">Phone number</label>
-      <input type="tel" name="phone" id="phone">
-    </div>
-
-    <div class="field">
-      <label for="message">Message</label>
-      <textarea name="message" id="message" rows="6" required></textarea>
-    </div>
+      <ul class="actions special">
+        <li><input type="submit" id="submitBtn" value="Send Message"></li>
+      </ul>
+    </form>
 
   </div>
-
-  <ul class="actions special">
-    <li>
-     <input type="submit" id="submitBtn" value="Send Message" />
-
-
-
-    </li>
-  </ul>
-
-</form>
-
-
-						</div>
-					</section>
-
-				<!-- Footer -->
-					<footer class="wrapper style1 align-center">
-						<div class="inner">
-							<ul class="icons">
-								<li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
-								<li><a href="#" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
-								<li><a href="#" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
-								<li><a href="#" class="icon brands style2 fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-								<li><a href="#" class="icon style2 fa-envelope"><span class="label">Email</span></a></li>
-							</ul>
-						</div>
-					</footer>
-
-			</div>
-
-		<script>
+</section>
+<script>
   const form = document.getElementById("orderForm");
   const btn = document.getElementById("submitBtn");
 
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault(); // stops page refresh / navigation
+  if (form && btn) {
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault(); // stop refresh / leaving the page
 
-    // Update UI immediately
-    btn.value = "Sending…";
-    btn.disabled = true;
+      btn.value = "Sending…";
+      btn.disabled = true;
 
-    try {
-      const formData = new FormData(form);
+      try {
+        const formData = new FormData(form);
 
-      const res = await fetch(form.action, {
-        method: "POST",
-        body: formData,
-        headers: { "Accept": "application/json" } // important for Web3Forms JSON response
-      });
+        const res = await fetch(form.action, {
+          method: "POST",
+          body: formData,
+          headers: { "Accept": "application/json" }
+        });
 
-      const data = await res.json().catch(() => ({}));
+        const data = await res.json().catch(() => ({}));
 
-      if (res.ok && (data.success === true || data.message)) {
-        btn.value = "Sent! Check your spam if you don't hear back soon 💌";
-        form.reset();
-      } else {
+        if (res.ok && data.success) {
+          btn.value = "Sent! Check your spam if you don't hear back soon 💌";
+          form.reset();
+        } else {
+          btn.value = "Oops—try again";
+          btn.disabled = false;
+          alert("Hmm—your message didn’t send. Please try again in a moment.");
+          console.warn("Web3Forms error:", data);
+        }
+      } catch (err) {
         btn.value = "Oops—try again";
         btn.disabled = false;
-        console.warn("Web3Forms error:", data);
-        alert("Hmm—your message didn’t send. Please try again in a moment.");
+        alert("Network issue—please try again.");
+        console.error(err);
       }
-    } catch (err) {
-      btn.value = "Oops—try again";
-      btn.disabled = false;
-      console.error(err);
-      alert("Network issue—please try again.");
-    }
-  });
+    });
+  }
 </script>
 
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
 
-	</body>
+</div>
+</body>
 </html>
