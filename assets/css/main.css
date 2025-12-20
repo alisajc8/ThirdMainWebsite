@@ -9016,4 +9016,129 @@ footer.wrapper > .inner {
   padding-top: 0 !important;
 }
 
+/* Ensure white panel is positioning context */
+.banner .content {
+  position: relative;
+}
+
+/* Mobile buttergem caption – hidden by default */
+.buttergem-mobile {
+  display: none;
+}
+
+/* Mobile-only behavior */
+@media screen and (max-width: 979px) {
+
+  /* Hide desktop caption */
+  .buttergem-caption {
+    display: none !important;
+  }
+
+  /* Show mobile caption */
+  .buttergem-mobile {
+    display: block;
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    z-index: 3;
+
+    width: 100%;
+    max-width: min(140px, 40vw);
+    height: auto;
+
+    pointer-events: none;
+  }
+}
+
+/* Ensure white panel is positioning context */
+.spotlight .content {
+  position: relative;
+}
+
+/* Mobile borage caption hidden by default */
+.borage-mobile {
+  display: none;
+}
+
+/* Mobile-only behavior */
+@media screen and (max-width: 979px) {
+
+  /* Hide desktop caption */
+  .borage-caption {
+    display: none !important;
+  }
+
+  /* Show mobile caption (top-right) */
+  .borage-mobile {
+    display: block;
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    z-index: 3;
+
+    width: 100%;
+    max-width: min(100px, 40vw);
+    height: auto;
+
+    pointer-events: none;
+  }
+}
+
+/* Mobile sorrel caption hidden by default */
+.sorrel-mobile {
+  display: none;
+}
+
+/* Mobile-only behavior */
+@media screen and (max-width: 979px) {
+
+  /* Hide desktop caption for this section */
+  .sprout-caption {
+    display: none !important;
+  }
+
+  /* Show mobile caption (top-left) */
+  .sorrel-mobile {
+    display: block;
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    z-index: 3;
+
+    width: 100%;
+    max-width: min(140px, 40vw);
+    height: auto;
+
+    pointer-events: none;
+  }
+}
+
+/* Mobile strawberry sprout caption hidden by default */
+.strawberrysprout-mobile {
+  display: none;
+}
+
+/* Mobile-only behavior */
+@media screen and (max-width: 979px) {
+
+  /* Hide desktop caption for this section */
+  .alpine-caption {
+    display: none !important;
+  }
+
+  /* Show mobile caption (top far-right) */
+  .strawberrysprout-mobile {
+    display: block;
+    position: absolute;
+    top: 0.5rem;
+    right: 0.25rem;   /* FAR right */
+    z-index: 3;
+
+    width: 100%;
+    max-width: min(130px, 38vw);
+    height: auto;
+
+    pointer-events: none;
+  }
+}
 
