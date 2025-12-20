@@ -180,16 +180,17 @@ To date, we’ve grown borage, white strawberries(pine berries), red alexandria 
 					<section id="order" class="wrapper style1 align-center">
 						<div class="inner medium">
 							<h2>Order now</h2>
-							<form method="post" action="#">
+							<form action="https://api.web3forms.com/submit" method="POST">
+								<input type="hidden" name="access_key" value="ec1af060-b2ee-4380-b0b7-2943af8a2791">
 								<div class="fields">
   <div class="field">
     <label for="name">Name</label>
-    <input type="text" name="name" id="name" />
+    <input type="text" name="name" id="name" required/>
   </div>
 
   <div class="field half">
     <label for="email">Email</label>
-    <input type="email" name="email" id="email" />
+    <input type="email" name="email" id="email" required/>
   </div>
 
   <div class="field half">
