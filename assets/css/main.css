@@ -8665,4 +8665,18 @@ section#taste .content h2 { color: #618C03 !important; }
 
 html { scroll-behavior: smooth; }
 
+.handwritten-note {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2.5rem 1rem;
+}
+
+.handwritten-note img {
+  width: 100%;
+  max-width: min(520px, 90vw);
+  height: auto;
+}
+
+
 
